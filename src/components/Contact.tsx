@@ -324,6 +324,53 @@ export default function Contact() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* ── Map ────────────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 lg:mt-14"
+        >
+          <div className="relative rounded-3xl overflow-hidden border-2 border-slate-100 shadow-xl shadow-slate-200/60">
+            {/* Header bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 sm:px-7 py-4 bg-white border-b border-slate-100">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-blue-600/10 flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-navy-800 font-extrabold text-sm">Our Location</p>
+                  <p className="text-slate-400 text-xs">Section 231, Lot 7, Iarogaha Street, Tokarara, NCD</p>
+                </div>
+              </div>
+              <a
+                href="https://maps.google.com/?q=-9.463,147.174"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-500 transition-colors shrink-0"
+              >
+                Open in Google Maps
+                <ArrowRight size={13} />
+              </a>
+            </div>
+
+            {/* Map iframe */}
+            <div className="h-64 sm:h-80 lg:h-96 w-full">
+              <iframe
+                src="https://maps.google.com/maps?q=-9.463,147.174&z=16&t=m&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Anchorage BTS office location"
+              />
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
